@@ -15,10 +15,10 @@ table = soup.find(id="simpleTable")
 print(table)
 
 if table:
-    rows= table.find_all("tr")
+    rows = table.find_all("tr")
     for row in rows:
         cells = row.find_all("td")
         for cell in cells:
                 print(cell.text.strip())
 else:
-    print("No table is found")
+    print("No table is found")  

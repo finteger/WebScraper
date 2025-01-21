@@ -36,7 +36,28 @@ if table:
     print('Column headers:')    
     print(headers)  
     
-    print('\nRow data:')    
+    print('\nRow data:')
+    for row in rows:
+        print(row)    
+        
+    header_type = (
+      'All-items',
+      'Food',
+      'Shelter',
+      'Householder operations, furnishings, equipment',
+      'Clothing & footwear',
+      'Transportation',
+      'Gasoline',
+      'Health & Personal Care',
+      'Recreation, education & reading',
+      'Alcoholic beverages, tobacco products & recreational cannabis',
+      'All-items excluding food & energy',
+      'All-items excluding energy',
+      'Energy',
+      'Goods',
+      'Services', 
+    )
+        
     
  
             
