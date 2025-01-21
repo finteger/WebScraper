@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import selenium.webdriver.chrome.service
+import csv
 
 driver = webdriver.Chrome()
 
@@ -40,7 +41,7 @@ if table:
     for row in rows:
         print(row)    
         
-    header_type = (
+    headers_tuple = (
       'All-items',
       'Food',
       'Shelter',
@@ -57,6 +58,31 @@ if table:
       'Goods',
       'Services', 
     )
+    
+    #Write the data to a csv file
+    with open('table_data.csv', 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        
+        #Insert the new column as the first column in each row
+        for i, row in enumerate(rows):
+            rows[i] = [headers_tuple[i]] + row
+            
+        #write the headers
+        writer.writerow(headers[2:8])
+        
+        #write the rows
+        writer.writerows(rows)
+    print("Data saved to file successfully!") 
+else:
+    print("Table not found")
+    
+#close the web driver from selenium
+driver.quit()
+
+
+        
+        
+        
         
     
  
